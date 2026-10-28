@@ -1,0 +1,29 @@
+#include <iostream>
+#include <vector>
+#include <string>
+
+
+struct song
+{
+    int id;
+   std::string title;
+   std::string artist;
+
+   std::vector<std::string> genres;
+    
+};
+
+int main(){
+
+    song One = {1, "Wish","Yushi",{"Pop", "K-Pop"}};
+    song Two = {2, "Happy", "Birthday", {"Pop","Kids"}};
+    song Three = {3, "Despacito", "Luis Francis", {"Spanish","Regeaton","Hot"}};
+    song four = {4, "Nasa", "Yushi", {"K-pop","Hip-Hop"}};
+
+    
+
+
+}
+
+
+
