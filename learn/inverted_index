@@ -20,7 +20,6 @@ int main(){
     song Three = {3, "Despacito", "Luis Francis", {"Spanish","Regeaton","Hot"}};
     song four = {4, "Nasa", "Yushi", {"K-pop","Hip-Hop"}};
 
-    
 
 
 }
