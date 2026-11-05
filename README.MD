@@ -3,6 +3,6 @@
 Playlist Generator
 
 Juliana Cortes
-Ashley Varges
+Ashley Vargas
 
 we make music dee dee dee
