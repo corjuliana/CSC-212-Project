@@ -2,6 +2,7 @@
 
 #include <fstream>
 #include <iostream>
+#include <sstream>
 
 std::vector<Song> SongReader::loadSongs(const std::string& filename)
 {
@@ -27,10 +28,74 @@ std::vector<Song> SongReader::loadSongs(const std::string& filename)
 
         song.id = idCounter;
         idCounter+=1;
-
         
+        // needed data
+        std::string tags, genre, year, duration, throwaway;
+
+        std::stringstream row(line);
+
+        // track ID - not needed atm
+        std::getline(row,throwaway, ',');
+
+        // name
+        std::getline(row, song.name, ',');
+
+        // artist
+        std::getline(row, song.artist, ',');
+
+        // spotify url
+        std::getline(row, throwaway, ',');
+
+        // spotify_id
+        std::getline(row, throwaway, ',');
+
+        // tags are in ""
+       std::getline(row, tags, '"'); // open
+       std::getline(row, tags, '"'); // close
+
+       std::stringstream tagStream(tags);
+
+       std::string singleTag;
+
+        // split tags by commas
+       while (std::getline(tagStream, singleTag, ',')){
+        song.tags.push_back(singleTag);
+       }
+
+
+
+
+        // genre
+        std::getline(row, genre, ',');
+
+        // year
+        std::getline(row, year, ',');
+
+        // duration (ms)
+        std::getline(row, duration, ',');
+
+
+        // convert strings to ints
+        //if (!year.empty())
+        //{
+         //   song.year = std::stoi(year);
+        //}
+
+        //if (!duration.empty())
+        //{
+        //    song.durationMS = std::stoi(duration);
+        //}
+
+        // some songs have the genre empty
+        if (!genre.empty())
+        {
+            song.tags.push_back(genre);
+        }
+
         songs.push_back(song);
     }
+
+            
 
     return songs;
 }
