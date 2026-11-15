@@ -16,11 +16,10 @@ int main()
 
               //  test case 1
     Song firstSong = songs[0];
-
     std::cout << firstSong.name << '\n';
     std::cout << firstSong.artist << '\n';
-    std::cout << firstSong.year << '\n';
-    std::cout << firstSong.durationMS << '\n';
+    std::cout << "year: " << firstSong.year << '\n';
+    std::cout << "duration: " <<firstSong.durationMS << '\n';
 
     std::cout << "Tags:\n";
 

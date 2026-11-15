@@ -9,7 +9,7 @@ struct Song
     std::string name;
     std::string artist;
 
-    int year;
+    int year = 0;
     int durationMS = 0;
 
     // vector will combine both genre & tags of song

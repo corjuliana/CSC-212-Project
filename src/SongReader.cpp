@@ -62,7 +62,7 @@ std::vector<Song> SongReader::loadSongs(const std::string& filename)
         song.tags.push_back(singleTag);
        }
 
-
+       std::getline(row, throwaway, ','); // consume the comma
 
 
         // genre
@@ -74,17 +74,19 @@ std::vector<Song> SongReader::loadSongs(const std::string& filename)
         // duration (ms)
         std::getline(row, duration, ',');
 
+        if (song.id == 0)
+{
+    
+}
 
-        // convert strings to ints
-        //if (!year.empty())
-        //{
-         //   song.year = std::stoi(year);
-        //}
+        if (!year.empty() && std::isdigit(year[0]))
+{
+        song.year = std::stoi(year);
+}
 
-        //if (!duration.empty())
-        //{
-        //    song.durationMS = std::stoi(duration);
-        //}
+        if (!duration.empty() && std::isdigit(duration[0])){
+        song.durationMS = std::stoi(duration);
+        }
 
         // some songs have the genre empty
         if (!genre.empty())
@@ -92,8 +94,9 @@ std::vector<Song> SongReader::loadSongs(const std::string& filename)
             song.tags.push_back(genre);
         }
 
+
         songs.push_back(song);
-    }
+     }
 
             
 
